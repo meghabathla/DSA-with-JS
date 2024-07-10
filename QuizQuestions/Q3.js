@@ -1,6 +1,12 @@
-var x = 10;
+// var x = 10;
 function func() {
-  let x = 20;
+  var x = 20;
+}
+if (true) {
+  var y = 90;
 }
 
 console.log(x);
+console.log(y);
+
+//Note: var has functional scope but not block scope.
