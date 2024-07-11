@@ -4,6 +4,7 @@ class Queue {
   constructor() {
     this.queue = [];
   }
+
   enqueue(data) {
     this.queue.push(data);
   }
@@ -53,4 +54,5 @@ myqueue.enqueue(7);
 myqueue.enqueue(6);
 
 myqueue.dequeue();
+
 console.log(myqueue.printQueue());
