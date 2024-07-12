@@ -1,6 +1,6 @@
 ### Stack Implementation in JavaScript
 
-Stacks are a data structure that store information in a form of a list. It is an ordered list in which the addition of a new data item and deletion of the already existing data item is done from only one end known as the top of the stack (TOS). That is the reason why stack is also called Last-in-First-out (LIFO).
+Stack is a data structure that store information in a form of a list. It is an ordered list in which the addition of a new data item and deletion of the already existing data item is done from only one end known as the top of the stack (TOS). That is the reason why stack is also called Last-in-First-out (LIFO).
 Stacks are useful when we need to make sure elements follow the LIFO method.
 
 ## Usage Of Stacks:
