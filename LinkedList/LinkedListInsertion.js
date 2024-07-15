@@ -61,7 +61,7 @@ LinkedList.prototype.deleteLastNode = function () {
 
   if (!current.next) {
     // case 2- in case only head/one node in list
-    current.next = null;
+    current = null;
     return;
   }
   //case-3 when list have many nodes
@@ -75,17 +75,64 @@ LinkedList.prototype.deleteLastNode = function () {
 
 //delete the given node
 LinkedList.prototype.deleteGivenNode = function (key) {
+  //list is empty
   if (!this.head) {
     console.log("List is empty");
     return;
   }
+  //key found in head
   if (this.head.data == key) {
     this.head = this.head.next;
+    return;
   }
+
   let current = this.head;
-  while (current.next == key) {
-    current.next = current.next.next;
+  while (current.next !== null) {
+    if (current.next.data === key) {
+      current.next = current.next.next;
+      return;
+    }
+    current = current.next;
   }
+  console.log("No node found with Key");
+};
+
+//Search the node
+LinkedList.prototype.search = function (key) {
+  let current = this.head;
+  while (current) {
+    if (current.data === key) {
+      return true;
+    }
+    current = current.next;
+  }
+  return false;
+};
+
+//traversal the list
+LinkedList.prototype.traverse = function () {
+  let listValue = [];
+  let current = this.head;
+
+  while (current) {
+    listValue.push(current.data);
+    current = current.next;
+  }
+  console.log(listValue.join("->"));
+};
+
+//Reverse the linkedList
+LinkedList.prototype.reverse = function () {
+  let current = this.head;
+  let next = null;
+  let prev = null;
+  while (current) {
+    next = current.next;
+    current.next = prev;
+    prev = current;
+    current = next;
+  }
+  this.head = prev;
 };
 
 //print the linkedList
@@ -108,11 +155,19 @@ linkedlist.insertAtEnd(89);
 linkedlist.insertAtEnd(45);
 linkedlist.insertAtEnd(60);
 linkedlist.insertAtEnd(99);
-
 linkedlist.insertAtBetween(60, 30);
+
+linkedlist.printLinkedList();
+console.log(`new print`);
 
 linkedlist.deleteFirstNode();
 linkedlist.deleteLastNode();
 linkedlist.deleteGivenNode(60);
+
+linkedlist.printLinkedList();
+
+console.log(linkedlist.search(45));
+linkedlist.traverse();
+linkedlist.reverse();
 
 linkedlist.printLinkedList();
