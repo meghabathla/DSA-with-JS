@@ -53,3 +53,47 @@ DoublyLinkedList.prototype.insertInBetween = function (prevNode, data) {
     this.tail = newNode;
   }
 };
+
+DoublyLinkedList.prototype.deleteFirstNode = function () {
+  if (!this.head) {
+    return `Nothing to delete`;
+  }
+  if (this.head === this.tail) {
+    this.head = null;
+    this.tail = null;
+  } else {
+    this.head = this.head.next;
+    this.head.prev = null;
+  }
+};
+
+DoublyLinkedList.prototype.deleteLastNode = function () {
+  if (!this.tail) {
+    console.log(`Linkedlist is empty`);
+    return;
+  }
+
+  if (this.head === this.tail) {
+    this.head = null;
+    this.tail = null;
+  } else {
+    this.tail = this.tail.prev;
+    this.tail.next = null;
+  }
+};
+
+DoublyLinkedList.prototype.reverse = function () {
+  let current = this.head;
+  let temp = null;
+  while (current) {
+    temp = current.prev;
+    current.prev = current.next;
+    current.next = temp;
+    current = current.prev;
+  }
+
+  if (temp != null) {
+    this.tail = this.head;
+    this.head = temp.prev;
+  }
+};
