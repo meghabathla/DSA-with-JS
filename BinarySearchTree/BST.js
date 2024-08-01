@@ -69,4 +69,14 @@ class BinarySearchTree {
     }
     return node;
   }
+  findMaxNode(node) {
+    while (node.right) {
+      node = node.right;
+    }
+    return node;
+  }
+  inorderTraversal() {
+    const result = [];
+    this.order(this.root, result);
+  }
 }
