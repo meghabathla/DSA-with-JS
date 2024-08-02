@@ -1,8 +1,8 @@
 class Node {
   constructor(data, prev = null, next = null) {
-    this.prev = prev;
     this.data = data;
     this.next = next;
+    this.prev = prev;
   }
 }
 
@@ -12,32 +12,32 @@ class DoublyLinkedList {
     this.tail = null;
   }
 }
-//insert at the begining
+
+//Insert at the beginning
 DoublyLinkedList.prototype.insertInBeginning = function (data) {
-  const newNode = new Node(null, data, this.head);
+  const newNode = new Node(data, this.head, null);
+
   if (this.head !== null) {
-    thiss.head.prev = newNode;
+    this.head.prev = newNode;
   }
   this.head = newNode;
+  if (this.tail === null) {
+    this.tail = newNode;
+  }
+};
+
+//insert at the end
+DoublyLinkedList.prototype.insertAtTheEnd = function (data) {
+  const newNode = new Node(data, null, this.tail);
+  if (this.tail !== null) {
+    this.tail.next = newNode;
+  }
+  this.tail = newNode;
   if (this.head === null) {
     this.head = newNode;
   }
 };
 
-// insert at the End
-DoublyLinkedList.prototype.insertAtEnd = function (data) {
-  const newNode = new Node(this.tail, data, null);
-
-  if (this.tail !== null) {
-    this.tail.next = newNode;
-  }
-  this.tail = newNode;
-  if (this.tail === null) {
-    this.tail = null;
-  }
-};
-
-//insert in between
 DoublyLinkedList.prototype.insertInBetween = function (prevNode, data) {
   if (prevNode === null) {
     return `Invalid prev Node`;
