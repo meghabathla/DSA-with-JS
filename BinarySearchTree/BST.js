@@ -2,7 +2,7 @@ class BTSNode {
   constructor(key) {
     this.key = key;
     this.left = null;
-    this.right = nul;
+    this.right = null;
   }
 }
 
@@ -79,14 +79,16 @@ class BinarySearchTree {
     const result = [];
     this.inOrder(this.root, result);
     return result;
-  }
-  inOrder() {
+  } //
+  inOrder(node, result) {
     if (node !== null) {
+      //node = root
       this.inOrder(node.left, result);
       result.push(node.key);
       this.inOrder(node.right, result);
     }
   }
+  //ouput - 13,18,21,25,27,29
   preOrderTraversal() {
     const result = [];
     this.preOrder(this.root, result);
