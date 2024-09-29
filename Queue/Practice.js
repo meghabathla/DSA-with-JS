@@ -28,6 +28,9 @@ class Queue {
   clear() {
     return (this.queue = []);
   }
+  reverse() {
+    return this.queue.reverse();
+  }
   printQueue() {
     let str = "";
     for (let i = 0; i < this.queue.length; i++) {
@@ -47,4 +50,5 @@ console.log(result.printQueue());
 console.log(result.peek());
 console.log(result.size());
 console.log(result.dequeue());
+console.log(result.reverse());
 console.log(result.printQueue());
