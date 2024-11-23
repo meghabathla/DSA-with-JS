@@ -11,7 +11,7 @@ function canflowerPlanted(flowerbed, n) {
   for (let i = 0; i < flowerbedLength; i++) {
     if (flowerbed[i] === 0) {
       if (i === 0) {
-        if (flowerbed[i + 1] === 0) {
+        if (flowerbed[i + 1] === 0 || n === 1) {
           n = n - 1;
           flowerbed[i] = 1;
         }
