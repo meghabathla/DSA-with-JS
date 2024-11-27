@@ -1,1 +1,1 @@
-array[i] + extraCandies
+console.log(left);
