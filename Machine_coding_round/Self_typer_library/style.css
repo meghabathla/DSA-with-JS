@@ -1,0 +1,14 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  background-color: rgb(135, 246, 246);
+}
+.cursor {
+  background-color: black;
+}
+.typed-text {
+  color: blue;
+}
